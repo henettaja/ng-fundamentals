@@ -11,6 +11,7 @@ import {
   EventRouteActivator,
   EventListResolver,
   CreateSessionComponent,
+  SessionListComponent,
 } from './events'
 
 import { EventsAppComponent } from './events-app.component'
@@ -27,6 +28,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
     EventsListComponent,
     EventThumbnailComponent,
     EventDetailsComponent,
+    SessionListComponent,
     CreateEventComponent,
     CreateSessionComponent,
     NavBarComponent,
@@ -55,5 +57,7 @@ export function CheckDirtyState(component: CreateEventComponent) {
     return window.confirm(
       'You have not saved this event, do you really want to cancel?'
     )
-  } else return true
+  } else {
+    return true
+  }
 }
