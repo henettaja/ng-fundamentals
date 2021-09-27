@@ -12,6 +12,7 @@ import {
   EventListResolver,
   CreateSessionComponent,
   SessionListComponent,
+  DurationPipe,
 } from './events'
 
 import { EventsAppComponent } from './events-app.component'
@@ -34,6 +35,7 @@ import { CollapsibleWellComponent, ToastrService } from './shared'
     NavBarComponent,
     CollapsibleWellComponent,
     Error404Component,
+    DurationPipe,
   ],
   imports: [
     BrowserModule,
