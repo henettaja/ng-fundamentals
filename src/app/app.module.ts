@@ -16,11 +16,11 @@ import {
 
 import { EventsAppComponent } from './events-app.component'
 import { NavBarComponent } from './nav/navbar.component'
-import { ToastrService } from './shared/toastr.service'
 import { appRoutes } from './routes'
 import { Error404Component } from './errors/404.component'
 import { AuthService } from './user/auth.service'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { CollapsibleWellComponent, ToastrService } from './shared'
 
 @NgModule({
   declarations: [
@@ -32,6 +32,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
     CreateEventComponent,
     CreateSessionComponent,
     NavBarComponent,
+    CollapsibleWellComponent,
     Error404Component,
   ],
   imports: [
