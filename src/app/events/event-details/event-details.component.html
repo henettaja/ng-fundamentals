@@ -23,18 +23,77 @@
   </div>
   <hr />
   <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-11">
       <h3 style="margin: 0">sessions</h3>
     </div>
-    <div class="col-md-2">
+  </div>
+  <div class="col-sm" style="margin: 10px 0 0">
+    <div class="btn-group btn-group-sm">
+      <button
+        class="btn btn-default"
+        [class.active]="sortBy === 'name'"
+        (click)="sortBy = 'name'"
+      >
+        By name
+      </button>
+      <button
+        class="btn btn-default"
+        [class.active]="sortBy === 'votes '"
+        (click)="sortBy = 'votes'"
+      >
+        By votes
+      </button>
+    </div>
+  </div>
+  <div class="row" style="margin: 10px 0 0">
+    <div class="col-sm">
+      <div class="btn-group btn-group-sm">
+        <button
+          class="btn btn-default"
+          [class.active]="filterBy === 'all'"
+          (click)="filterBy = 'all'"
+        >
+          All
+        </button>
+        <button
+          class="btn btn-default"
+          [class.active]="filterBy === 'beginner'"
+          (click)="filterBy = 'beginner'"
+        >
+          Beginner
+        </button>
+        <button
+          class="btn btn-default"
+          [class.active]="filterBy === 'intermediate'"
+          (click)="filterBy = 'intermediate'"
+        >
+          Intermediate
+        </button>
+        <button
+          class="btn btn-default"
+          [class.active]="filterBy === 'advanced'"
+          (click)="filterBy = 'advanced'"
+        >
+          Advanced
+        </button>
+      </div>
+    </div>
+    <div class="col-md" style="margin: 10px 0 0">
       <a (click)="addSession()">Add sessions</a>
     </div>
   </div>
-  <br />
-  <session-list *ngIf="!addMode" [sessions]="event.sessions"></session-list>
-  <create-session
-    *ngIf="addMode"
-    (saveNewSession)="saveNewSession($event)"
-    (cancelAddSession)="cancelAddSession()"
-  ></create-session>
+  <div>
+    <br />
+    <session-list
+      [filterBy]="filterBy"
+      [sortBy]="sortBy"
+      *ngIf="!addMode"
+      [sessions]="event.sessions"
+    ></session-list>
+    <create-session
+      *ngIf="addMode"
+      (saveNewSession)="saveNewSession($event)"
+      (cancelAddSession)="cancelAddSession()"
+    ></create-session>
+  </div>
 </div>

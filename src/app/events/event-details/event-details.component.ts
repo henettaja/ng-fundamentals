@@ -22,6 +22,8 @@ import { IEvent, ISession } from '../shared/event.model'
 export class EventDetailsComponent implements OnInit {
   event!: IEvent
   addMode = false
+  filterBy = 'all'
+  sortBy = 'name'
 
   constructor(
     private eventService: EventService,
