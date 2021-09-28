@@ -21,7 +21,9 @@ import { appRoutes } from './routes'
 import { Error404Component } from './errors/404.component'
 import { AuthService } from './user/auth.service'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
-import { CollapsibleWellComponent, ToastrService } from './shared'
+import { CollapsibleWellComponent, Toastr, TOASTR_TOKEN } from './shared'
+
+declare let toastr: Toastr
 
 @NgModule({
   declarations: [
@@ -45,7 +47,7 @@ import { CollapsibleWellComponent, ToastrService } from './shared'
   ],
   providers: [
     EventService,
-    ToastrService,
+    { provide: TOASTR_TOKEN, useValue: toastr },
     EventRouteActivator,
     EventListResolver,
     AuthService,
