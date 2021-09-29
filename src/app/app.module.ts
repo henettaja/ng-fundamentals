@@ -21,9 +21,17 @@ import { appRoutes } from './routes'
 import { Error404Component } from './errors/404.component'
 import { AuthService } from './user/auth.service'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
-import { CollapsibleWellComponent, Toastr, TOASTR_TOKEN } from './shared'
+import {
+  CollapsibleWellComponent,
+  Toastr,
+  TOASTR_TOKEN,
+  JQ_TOKEN,
+  ModalTriggerDirective,
+  SimpleModalComponent,
+} from './shared'
 
-declare let toastr: Toastr
+const toastr: Toastr = (window as any).toastr
+const jQuery = (window as any).$
 
 @NgModule({
   declarations: [
@@ -36,7 +44,9 @@ declare let toastr: Toastr
     CreateSessionComponent,
     NavBarComponent,
     CollapsibleWellComponent,
+    SimpleModalComponent,
     Error404Component,
+    ModalTriggerDirective,
     DurationPipe,
   ],
   imports: [
@@ -48,6 +58,7 @@ declare let toastr: Toastr
   providers: [
     EventService,
     { provide: TOASTR_TOKEN, useValue: toastr },
+    { provide: JQ_TOKEN, useValue: jQuery },
     EventRouteActivator,
     EventListResolver,
     AuthService,
