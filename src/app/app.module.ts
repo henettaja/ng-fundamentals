@@ -13,6 +13,9 @@ import {
   CreateSessionComponent,
   SessionListComponent,
   DurationPipe,
+  UpvoteComponent,
+  VoterService,
+  LocationValidator,
 } from './events'
 
 import { EventsAppComponent } from './events-app.component'
@@ -45,8 +48,10 @@ const jQuery = (window as any).$
     NavBarComponent,
     CollapsibleWellComponent,
     SimpleModalComponent,
+    UpvoteComponent,
     Error404Component,
     ModalTriggerDirective,
+    LocationValidator,
     DurationPipe,
   ],
   imports: [
@@ -62,6 +67,7 @@ const jQuery = (window as any).$
     EventRouteActivator,
     EventListResolver,
     AuthService,
+    VoterService,
     { provide: 'canDeactivateCreateEvent', useValue: CheckDirtyState },
   ],
   bootstrap: [EventsAppComponent],
